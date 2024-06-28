@@ -21,7 +21,6 @@ public class ChangePassword extends HttpServlet {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/bankdb";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "root";
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(false);

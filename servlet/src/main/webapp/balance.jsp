@@ -12,7 +12,7 @@
         <div class="mb-4">
             <p><strong>Account ID:</strong> <%= request.getAttribute("account_id") %></p>
             <p><strong>Account Name:</strong> <%= request.getAttribute("account_name") %></p>
-            <p><strong>Balance:</strong> Rs<%= request.getAttribute("account_balance") %></p>
+            <p><strong>Balance:</strong> <%= request.getAttribute("account_balance") %> Rs</p>
         </div>
         <a href="dashboard.jsp" class="text-blue-500 hover:underline">Back to Dashboard</a>
     </div>

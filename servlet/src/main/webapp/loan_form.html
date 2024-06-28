@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Loan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+<div class="bg-white p-8 rounded-lg shadow-lg w-full sm:w-96" data-aos="fade-up" data-aos-duration="1000">
+    <h2 class="text-3xl font-bold mb-6 text-blue-700 text-center">Apply for Loan</h2>
+    <form action="applyLoan" method="post" class="space-y-4" onsubmit="return clearFormInputs()">
+        <div class="form-group">
+            <label for="account_id" class="block font-medium">Account ID:</label>
+            <input type="text" id="account_id" name="account_id" placeholder="Enter your account ID" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
+        </div>
+        <div class="form-group">
+            <label for="contact" class="block font-medium">Contact:</label>
+            <input type="text" id="contact" name="contact" placeholder="Enter your contact number" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
+        </div>
+        <div class="form-group">
+            <label for="password" class="block font-medium">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
+        </div>
+        <div class="form-group">
+            <label for="loan_amount" class="block font-medium">Loan Amount:</label>
+            <input type="text" id="loan_amount" name="loan_amount" placeholder="5% interest/min" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" required>
+        </div>
+        <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Apply</button>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>

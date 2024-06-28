@@ -41,33 +41,30 @@ public class WithdrawMoneyServlet extends HttpServlet {
 
         try {
             conn = DatabaseUtils.getConnection();
-
-            // Check if the user owns the account
             String checkOwnershipQuery = "SELECT user_id, account_balance FROM accounts WHERE account_id = ?";
             stmt = conn.prepareStatement(checkOwnershipQuery);
             stmt.setInt(1, accountId);
             rs = stmt.executeQuery();
-
             if (rs.next()) {
                 int userId = rs.getInt("user_id");
                 double currentBalance = rs.getDouble("account_balance");
-
-                // Verify ownership of the account
                 if (isUserAuthorized(userId, username, conn)) {
-                    // Check if sufficient balance
                     if (currentBalance >= amount) {
-                        // Proceed with withdrawal
-                        String updateBalanceQuery = "UPDATE accounts SET account_balance = account_balance - ? WHERE account_id = ?";
-                        stmt = conn.prepareStatement(updateBalanceQuery);
-                        stmt.setDouble(1, amount);
-                        stmt.setInt(2, accountId);
-
-                        int rowsUpdated = stmt.executeUpdate();
-
-                        if (rowsUpdated > 0) {
-                            response.sendRedirect("dashboard.jsp?message=withdrawalSuccess");
+                        // Check if the withdrawal amount exceeds the current balance
+                        double newBalance = currentBalance - amount;
+                        if (newBalance >= 0) {
+                            String updateBalanceQuery = "UPDATE accounts SET account_balance = ? WHERE account_id = ?";
+                            stmt = conn.prepareStatement(updateBalanceQuery);
+                            stmt.setDouble(1, newBalance);
+                            stmt.setInt(2, accountId);
+                            int rowsUpdated = stmt.executeUpdate();
+                            if (rowsUpdated > 0) {
+                                response.sendRedirect("dashboard.jsp?message=withdrawalSuccess");
+                            } else {
+                                response.sendRedirect("dashboard.jsp?error=withdrawalFailed");
+                            }
                         } else {
-                            response.sendRedirect("dashboard.jsp?error=withdrawalFailed");
+                            response.sendRedirect("dashboard.jsp?error=insufficientFunds");
                         }
                     } else {
                         response.sendRedirect("dashboard.jsp?error=insufficientFunds");
@@ -85,6 +82,7 @@ public class WithdrawMoneyServlet extends HttpServlet {
             DatabaseUtils.closeResources(rs, stmt, conn);
         }
     }
+
     private boolean isUserAuthorized(int userId, String username, Connection conn) throws SQLException {
         String checkUserQuery = "SELECT id FROM users WHERE username = ? AND id = ?";
         try (PreparedStatement stmt = conn.prepareStatement(checkUserQuery)) {

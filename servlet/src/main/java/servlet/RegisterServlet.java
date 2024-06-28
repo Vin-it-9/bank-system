@@ -24,20 +24,17 @@ public class RegisterServlet extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
         Connection conn = null;
         PreparedStatement preparedStatement = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-
             String insertUserSQL = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
             preparedStatement = conn.prepareStatement(insertUserSQL);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, email);
             preparedStatement.setString(3, password);
-
             int rowsInserted = preparedStatement.executeUpdate();
             if (rowsInserted > 0) {
                 response.sendRedirect("suc_regi.html");

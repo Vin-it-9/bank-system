@@ -39,8 +39,6 @@ public class CreateAccount extends HttpServlet {
 
         try {
             conn = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-
-            // Get user ID from username
             String getUserQuery = "SELECT id FROM users WHERE username = ?";
             stmt = conn.prepareStatement(getUserQuery);
             stmt.setString(1, username);
@@ -48,8 +46,6 @@ public class CreateAccount extends HttpServlet {
 
             if (rs.next()) {
                 int userId = rs.getInt("id");
-
-                // Insert new account
                 String insertAccountQuery = "INSERT INTO accounts (user_id, account_name, account_balance, password) VALUES (?, ?, 0.00, ?)";
                 stmt = conn.prepareStatement(insertAccountQuery);
                 stmt.setInt(1, userId);

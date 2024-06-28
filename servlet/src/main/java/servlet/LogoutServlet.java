@@ -17,10 +17,8 @@ public class LogoutServlet extends HttpServlet {
         HttpSession session = request.getSession(false); // do not create a new session if none exists
 
         if (session != null) {
-            session.invalidate(); // Invalidate the session
+            session.invalidate();
         }
-
-        // Clear any authentication cookies if present
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
@@ -30,13 +28,9 @@ public class LogoutServlet extends HttpServlet {
                 }
             }
         }
-
-        // Prevent caching of sensitive data
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         response.setHeader("Pragma", "no-cache");
         response.setHeader("Expires", "0");
-
-        // Redirect to the login page
         response.sendRedirect("login.html");
     }
 }
