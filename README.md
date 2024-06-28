@@ -4,7 +4,6 @@ create database bankdb;
 
 use bankdb;
 
--- Create 'users' table
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE,
@@ -14,7 +13,6 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
--- Create 'accounts' table
 CREATE TABLE accounts (
     account_id INT NOT NULL AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -27,7 +25,7 @@ CREATE TABLE accounts (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Create 'loans' table
+
 CREATE TABLE loans (
     loan_id INT NOT NULL AUTO_INCREMENT,
     account_id INT NOT NULL,
@@ -42,7 +40,7 @@ CREATE TABLE loans (
     FOREIGN KEY (account_id) REFERENCES accounts(account_id)
 );
 
--- Create 'loan_updates' table
+
 CREATE TABLE loan_updates (
     loan_id INT NOT NULL,
     updated_loan_amount DECIMAL(10,2) NOT NULL,
