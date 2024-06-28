@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw Money</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+<div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h2 class="text-3xl font-bold mb-4 text-blue-700 text-center">Withdraw Money</h2>
+    <form action="withdrawMoney" method="POST" class="space-y-4">
+        <div class="form-group">
+            <label for="account_id" class="block font-medium">Account ID</label>
+            <input type="text" id="account_id" name="account_id" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Enter your account ID" required>
+        </div>
+        <div class="form-group">
+            <label for="amount" class="block font-medium">Amount to Withdraw</label>
+            <input type="number" id="amount" name="amount" step="0.01" min="0.01" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Enter amount" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Withdraw</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
