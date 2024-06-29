@@ -3,29 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to IBS Bank</title>
+    <title>Bank Home Page</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex flex-col h-screen">
+<body class="bg-gray-100">
 
-<!-- Navigation Bar -->
-<nav class="bg-white shadow-md">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="text-xl font-bold text-blue-700">IBS Bank</div>
-        <div>
-            <a href="log-in" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300">Login</a>
-            <a href="Register" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-md transition duration-300 ml-2">Register</a>
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-700 p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-white text-2xl font-bold">IBS Bank</a>
+            <ul class="flex space-x-4">
+                <li><a href="about.html" class="text-white">About Us</a></li>
+                <li><a href="contact.html" class="text-white">Contact</a></li>
+                <li><a href="help.html" class="text-white">Help</a></li>
+            </ul>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Main Content -->
-<div class="flex-grow flex items-center justify-center">
-    <div class="bg-white p-10 rounded-lg shadow-lg text-center">
-        <h2 class="text-4xl font-bold mb-6 text-blue-700">Welcome to IBS Bank</h2>
-        <p class="text-lg mb-6 text-gray-600">Your trusted partner in financial services</p>
-    </div>
-</div>
+    <!-- Hero Section -->
+    <header class="bg-white shadow-md py-10">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold text-blue-700">Welcome to Our Bank</h1>
+            <p class="text-lg mt-4">Your trusted partner for financial success</p>
+            <div class="mt-8">
+                <a href="log-in" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md">Log-in</a>
+                <a href="Register" class="bg-gray-600 text-white py-2 hover:bg-gray-700 px-4 rounded-md">Register</a>
+            </div>
+        </div>
+    </header>
 
+    <!-- Main Content -->
+    <main class="container mx-auto py-10 p-20">
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://img.freepik.com/free-vector/global-data-security-personal-data-security-cyber-data-security-online-concept-illustration-internet-security-information-privacy-protection_1150-37355.jpg?t=st=1719661811~exp=1719665411~hmac=a391e237ba34aed2fa15b8b48b681b47bef22449d148f0ba7c2bbae390c83ae8&w=1380" alt="Personal Accounts" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-bold mb-2">Personal Accounts</h3>
+                    <p>Manage your money with our personal checking and savings accounts.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://img.freepik.com/free-photo/online-money-transfer-with-3d-phones-coins_107791-16581.jpg?t=st=1719661858~exp=1719665458~hmac=fecd3afbaeb436ca8aed8839d03fd93a774f69d137555ce9682aae0e456b04e6&w=1380" alt="Loans" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-bold mb-2">Loans</h3>
+                    <p>Find the right loan for your needs with competitive rates.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://img.freepik.com/free-vector/your-credit-card-web-banner-with-black-bank-cards_107791-10005.jpg?t=st=1719661899~exp=1719665499~hmac=833d4f8e807d5cd5516cfce73dbc2017f51cdfdb7a6012cd6284751492c6202d&w=1380" alt="Credit Cards" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-bold mb-2">Credit Cards</h3>
+                    <p>Choose from our range of credit cards with various benefits and rewards.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <img src="https://img.freepik.com/free-photo/finance-money-debt-credit-balance-concept_53876-133849.jpg?t=st=1719661991~exp=1719665591~hmac=82c97abd09c54ce87528febc07ae841d7f160f7c2b864f469366cc4c8215efb2&w=1380" alt="Business Accounts" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-bold mb-2">Business Accounts</h3>
+                    <p>Manage your business finances with our tailored business account solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Current Offers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                    <img src="https://img.freepik.com/free-photo/stack-coins-with-financial-chart_91128-4225.jpg?t=st=1719660906~exp=1719664506~hmac=e7264ae90f496cada7e559eeceb2a11ae63c072d05812af2587e561bfc5ec7fa&w=1380" alt="Special Loan Rates" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-bold mb-2">Special Loan Rates</h3>
+                    <p>Get a special interest rate on personal loans for a limited time.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                    <img src="https://img.freepik.com/premium-vector/online-cash-back-money-refund-concept-happy-people-with-purchases-receiving-cashback-shopping-woman-gets-refund-credit-card-saving-money-get-vouchers-discounts-reward-program_458444-785.jpg?w=1380" alt="Credit Card Rewards" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-bold mb-2">Credit Card Rewards</h3>
+                    <p>Earn double rewards points on all purchases for the first 3 months.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                    <img src="https://img.freepik.com/free-vector/hand-drawn-bank-template_23-2150531984.jpg?t=st=1719662277~exp=1719665877~hmac=6f8a883ca85db9ade4c7009a973c2e7c058854f7415bf62169f89e0e54652507&w=1480" alt="Savings Account Bonus" class="w-full h-32 object-cover mb-4 rounded-md">
+                    <h3 class="text-xl font-bold mb-2">Savings Account Bonus</h3>
+                    <p>Open a new savings account and get a $50 bonus after your first deposit.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Testimonials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="italic">"ISB Bank has been a game-changer for my business. Their customer service is top-notch!"</p>
+                    <p class="mt-4 font-bold">- Jane Doe, Small Business Owner</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="italic">"The loan process was straightforward and fast. Highly recommend ISB Bank for personal loans."</p>
+                    <p class="mt-4 font-bold">- John Smith, Homeowner</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <p class="italic">"Opening a savings account was the best decision. The interest rates are very competitive."</p>
+                    <p class="mt-4 font-bold">- Emily Johnson, Savvy Saver</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Another Image Section -->
+        <section class="mb-12 pr-80 pl-80">
+            <img src="5917.jpg" alt="Customer Success Story" class="w-full h-auto rounded-lg shadow-md">
+        </section>
+
+        <!-- Financial Tips Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">Financial Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Budgeting Basics</h3>
+                    <p>Learn how to create and stick to a budget to manage your finances effectively.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Saving Strategies</h3>
+                    <p>Discover the best strategies for saving money and building your savings account.</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-2">Investment Tips</h3>
+                    <p>Get insights into smart investment practices to grow your wealth.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white py-8 p-7">
+        <div class="container mx-auto flex justify-between items-center">
+            <p>&copy; 2024 IBS Bank. All rights reserved.</p>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-white">Privacy Policy</a></li>
+                <li><a href="#" class="text-white">Terms of Service</a></li>
+                <li><a href="#" class="text-white">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

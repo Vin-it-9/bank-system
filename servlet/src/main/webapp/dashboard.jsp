@@ -13,20 +13,22 @@
 <body class="bg-gray-100 ">
 
 
-<div class="sticky top-0 flex justify-between items-center bg-white p-4 shadow-md">
+<div class="sticky top-0 flex justify-between items-center bg-blue-700  p-4 shadow-md">
     <div class="flex-grow">
-        <h3 class="text-lg font-semibold text-gray-800">
+        <h3 class="text-lg font-semibold text-white text-2xl font-bold">
             Welcome, <%= session.getAttribute("username") %>
         </h3>
     </div>
-    <div class="flex space-x-4">
-        <button id="toggleButton" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Deposit</button>
-        <button id="toggleCreateAccount" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300">Create Account</button>
-        <button onclick="showChangePasswordForm()" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300">Change Password</button>
-        <form id="logoutForm" action="logout" method="POST">
-            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition duration-300">Logout</button>
-        </form>
-    </div>
+
+   <div class="flex space-x-4">
+       <button id="toggleButton" class="bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 transition duration-300">Deposit</button>
+       <button id="toggleCreateAccount" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-md transition duration-300">Create Account</button>
+       <button onclick="showChangePasswordForm()" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-md transition duration-300">Change Password</button>
+       <form id="logoutForm" action="logout" method="POST">
+           <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white py-2 px-4 rounded-md transition duration-300">Logout</button>
+       </form>
+   </div>
+
 </div>
 
 <div class="container mx-auto px-5 py-6 ">
@@ -141,15 +143,10 @@
                                            </div>
                                        </form>
                 </div>
+
+
         </div>
     </div>
-
-
-
-
-
-
-
 
 
 
