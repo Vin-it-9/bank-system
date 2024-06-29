@@ -69,13 +69,12 @@
         </div>
 
         <div class="bg-white p-4 rounded-lg shadow-md mb-4">
-            <a href="withdrow.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Withdraw Money</a>
-             <a href="transfer.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Transfer Money</a>
-             <a href="check_balance.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Check Balance</a>
-             <a href="loan_form.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Apply For Loan</a>
-             <a href="repayment_form.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Fill Your Loan</a>
-              <a href="loan_form.jsp" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Check Your Loan</a>
-
+            <a href="withdraw" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Withdraw Money</a>
+             <a href="Transfer" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Transfer Money</a>
+             <a href="check_balance" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Check Balance</a>
+             <a href="loan_form" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Apply For Loan</a>
+             <a href="repayment" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Fill Your Loan</a>
+              <a href="check_loan" class="inline-block bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md transition duration-300">Check Your Loan</a>
         </div>
 
     <div class="flex-grow p-6 overflow-hidden">
@@ -141,7 +140,7 @@
                                                <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300">Deposit</button>
                                            </div>
                                        </form>
-                                   </div>
+                </div>
         </div>
     </div>
 

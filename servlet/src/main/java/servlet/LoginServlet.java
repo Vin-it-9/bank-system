@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -45,7 +47,7 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("username", username);
                 session.setAttribute("email", email);
                 session.setAttribute("memberSince", memberSince);
-                response.sendRedirect("dashboard.jsp");
+                response.sendRedirect("Dashboard");
             } else {
                 response.sendRedirect("login.html?error=invalid");
             }
