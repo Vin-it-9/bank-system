@@ -14,7 +14,7 @@ public class LogoutServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(false); // do not create a new session if none exists
+        HttpSession session = request.getSession(false); 
 
         if (session != null) {
             session.invalidate();
@@ -23,7 +23,7 @@ public class LogoutServlet extends HttpServlet {
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("authToken")) {
-                    cookie.setMaxAge(0); // Clear the cookie
+                    cookie.setMaxAge(0); 
                     response.addCookie(cookie);
                 }
             }
