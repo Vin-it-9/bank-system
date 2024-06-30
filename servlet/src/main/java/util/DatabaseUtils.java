@@ -10,7 +10,6 @@ public class DatabaseUtils {
 
     static {
         try {
-            // Load the MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new ExceptionInInitializerError(e);
