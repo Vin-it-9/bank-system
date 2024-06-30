@@ -12,14 +12,11 @@ public class LoanSummaryServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // JDBC driver initialization
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             throw new ServletException("MySQL JDBC Driver not found.", e);
         }
-
-        // Get form parameters
         String accountIdStr = request.getParameter("account_id");
         String password = request.getParameter("password");
 
@@ -30,15 +27,11 @@ public class LoanSummaryServlet extends HttpServlet {
             response.getWriter().println("Invalid account ID format.");
             return;
         }
-
-        // JDBC Connection setup
         String jdbcUrl = "jdbc:mysql://localhost:3306/bankdb";
         String dbUsername = "root";
         String dbPassword = "root";
 
         try (Connection conn = DriverManager.getConnection(jdbcUrl, dbUsername, dbPassword)) {
-
-            // Validate credentials
             String validateSql = "SELECT * FROM accounts WHERE account_id = ? AND password = ?";
             try (PreparedStatement validateStmt = conn.prepareStatement(validateSql)) {
                 validateStmt.setInt(1, accountId);
@@ -51,8 +44,6 @@ public class LoanSummaryServlet extends HttpServlet {
                     }
                 }
             }
-
-            // Query to get total loan amount (including updates) for the account
             String loanSumSql = "SELECT COALESCE(SUM(l.loan_amount), 0) AS total_loan_amount, "
                     + "COALESCE(SUM(lu.updated_loan_amount), 0) AS total_updated_loan_amount "
                     + "FROM loans l "
@@ -69,8 +60,6 @@ public class LoanSummaryServlet extends HttpServlet {
                         totalLoanAmount = rs.getBigDecimal("total_loan_amount");
                         totalUpdatedLoanAmount = rs.getBigDecimal("total_updated_loan_amount");
                     }
-
-                    // Forward the total loan amounts to a result JSP
                     request.setAttribute("totalLoanAmount", totalLoanAmount);
                     request.setAttribute("totalUpdatedLoanAmount", totalUpdatedLoanAmount);
                     request.getRequestDispatcher("/loan_summary_result.jsp").forward(request, response);
