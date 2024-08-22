@@ -1,89 +1,87 @@
-# Makersharks Supplier Search API
+
+# Bank Management System
+
+## Demo
+https://github.com/Vin-it-9/bank-system/assets/148773020/28bfa14f-9064-459d-93a3-94a2099c7d4c
 
 
-## Overview
+## Tech Stack
 
-Makersharks is developing a proof of concept search API to allow buyers to find manufacturers based on customized criteria. This API enables querying for suppliers by location, nature of business, and manufacturing processes.
+**Client:** HTML, TailwindCSS 
 
-## Prerequisites
+**Server:** java Servlet , JSP 
 
-- **Java 17**: Ensure you have Java 17 installed.
-- **Maven 3.8.1 or higher**: Used for building the project.
-- **MySQL 8.0 or higher**: Database for storing and querying supplier data.
+**Database:** MySQL 
 
-## Getting Started
+## Mysql Database
 
-### 1. Clone the Repository
-
-Clone the project repository to your local machine:
-
+MySQL query for tables
 ```bash
-git clone https://github.com/Vin-it-9/Search_API.git
+create database bankdb;
 ```
 ```bash
-CREATE DATABASE makersharks;
-
+use bankdb;
 ```
-
-Configure Application Properties
-
 ```bash
-spring.application.name=search-api
-
-# MySQL Database Configuration
-spring.datasource.url=jdbc:mysql://localhost:3306/makersharks
-spring.datasource.driverClassName=com.mysql.cj.jdbc.Driver
-spring.datasource.username=root
-spring.datasource.password=root
-
-# JPA Configuration
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=update
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
 ```
 
 ```bash
-mvn clean install
+CREATE TABLE accounts (
+    account_id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    account_name VARCHAR(100) NOT NULL,
+    account_balance DECIMAL(10,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    password VARCHAR(255) NOT NULL,
+    PRIMARY KEY (account_id),
+    INDEX (user_id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+```
+
+```bash
+CREATE TABLE loans (
+    loan_id INT NOT NULL AUTO_INCREMENT,
+    account_id INT NOT NULL,
+    contact VARCHAR(100) NOT NULL,
+    loan_amount DECIMAL(10,2) NOT NULL,
+    loan_time INT NOT NULL,
+    interest_rate DECIMAL(5,2) NOT NULL DEFAULT 5.00,
+    loan_status VARCHAR(50) NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (loan_id),
+    INDEX (account_id),
+    FOREIGN KEY (account_id) REFERENCES accounts(account_id)
+);
 ```
 ```bash
-mvn spring-boot:run
-```
-## Testing the `/api/supplier/query` Endpoint
-
-To test the `/api/supplier/query` endpoint, use the following JSON request bodies. You can paste these into tools like [Postman](https://www.postman.com/) or [cURL](https://curl.se/) to test different scenarios.
-
-### 1. Test Case: Fetch Small Scale Manufacturers in Pune with 3D Printing Capability
-
-**Request:**
-
-```json
-{
-  "location": "Pune",
-  "natureOfBusiness": "small_scale",
-  "manufacturingProcesses": "_3d_printing",
-  "page": 0,
-  "size": 5
-}
+CREATE TABLE loan_updates (
+    loan_id INT NOT NULL,
+    updated_loan_amount DECIMAL(10,2) NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX (loan_id),
+    FOREIGN KEY (loan_id) REFERENCES loans(loan_id)
+);
 ```
 
-### 2. Test Case: Fetch all manufacturers in Mumbai
+## Screenshots
 
-**Request:**
+![Screenshot 2024-06-29 184611](https://github.com/Vin-it-9/bank-system/assets/148773020/36da830b-4214-4741-a257-7a5d96a03aaf)
 
-```json
-{
-  "location": "Mumbai",
-  "page": 0,
-  "size": 5
-}
-```
+![Screenshot 2024-06-29 184721](https://github.com/Vin-it-9/bank-system/assets/148773020/3baa5262-f07d-4a2f-b865-d5c173054a28)
 
-### 3. Test Case: Fetch all manufacturers of 1st page size 15
+![Screenshot 2024-06-29 184641](https://github.com/Vin-it-9/bank-system/assets/148773020/68b7bde0-d70c-47dc-a01c-382145a4ad74)
 
-**Request:**
+![Screenshot 2024-06-29 184655](https://github.com/Vin-it-9/bank-system/assets/148773020/3b5e5ffe-45ca-4f2e-b5cd-ce1e5bbcf873)
 
-```json
-{
-  "page": 0,
-  "size": 15
-}
-```
+
+
+
